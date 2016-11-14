@@ -9,5 +9,5 @@
     tools:context="dnsvpn.alibaba.com.dnsvpn.MainActivity">
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="DNS Service!" />
 </RelativeLayout>
