@@ -66,8 +66,14 @@ public class DNSVPNService extends VpnService {
     }
 
     @Override
-    public int onStartCommand(Intent paramIntent, int paramInt1, int paramInt2) {
+    public void onCreate() {
+        android.util.Log.e("LINZJ", "onCreate");
+    }
+
+    @Override
+    public int onStartCommand(Intent paramIntent, int p1, int p2) {
         registerBroadcast();
+        android.util.Log.e("LINZJ", String.format("onStartCommand: %d %d", p1, p2));
         this.mThread = new Thread(new Runnable() {
             public void run() {
                 try {

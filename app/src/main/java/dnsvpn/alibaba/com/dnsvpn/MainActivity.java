@@ -1,10 +1,15 @@
 package dnsvpn.alibaba.com.dnsvpn;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
+    Toggler toggler = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +21,19 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View view) {
-                if (!ServiceManager.isWorking())
-                    ServiceManager.start();
+                toggler.toggle();
             }
         });
+        StatusTextUpdater stu = new StatusTextUpdater((TextView)v.findViewById(R.id.mytextview));
+        toggler = new Toggler(stu);
+    }
 
+    @Override
+    protected void onActivityResult(int reqCode, int resultCode, Intent data) {
+        switch (reqCode) {
+            case 0:
+                toggler.prepareResult(resultCode);
+                break;
+        }
     }
 }

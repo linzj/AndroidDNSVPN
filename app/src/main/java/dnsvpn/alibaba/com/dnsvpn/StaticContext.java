@@ -1,11 +1,11 @@
 package dnsvpn.alibaba.com.dnsvpn;
 
-import android.content.Context;
+import android.app.Activity;
 
 /**
  * Created by linzj on 16-11-14.
  */
 
 public class StaticContext {
-    static Context AppContext = null;
+    static Activity AppContext = null;
 }
