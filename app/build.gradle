@@ -17,6 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    signingConfigs {
+
+       release {
+           storeFile file("keystore")
+           storePassword "ucweb2016"
+           keyAlias "signFiles"
+           keyPassword "ucweb2016"
+       }
+    }
+
+    buildTypes {
+            release {
+                signingConfig signingConfigs.release
+            }
+    }
 }
 
 dependencies {
